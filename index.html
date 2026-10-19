@@ -24,7 +24,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:3
 
 /* hero: the logo image is the background of the first section only */
 .hero-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
-  transition:opacity .9s ease,transform 1.2s cubic-bezier(.2,.7,.2,1),filter .9s ease;animation:bgin 1.8s ease both}
+  transition:opacity .9s ease,transform 1.2s cubic-bezier(.2,.7,.2,1),filter .9s ease;animation:bgin 1.8s ease backwards}
 .hero-bg::before{content:"";position:absolute;left:50%;top:46%;width:min(150vw,130vh);aspect-ratio:1;transform:translate(-50%,-50%);
   background:url(hero.jpg) center/cover no-repeat;
   -webkit-mask-image:radial-gradient(closest-side,#000 78%,transparent 100%);mask-image:radial-gradient(closest-side,#000 78%,transparent 100%)}
@@ -49,7 +49,7 @@ main{max-width:1180px;margin:0 auto;padding:40px 20px 90px}
 .shot{position:relative;width:100%;height:100%;border-radius:132px 132px 2px 2px;overflow:hidden;display:grid;place-items:center;
   background:linear-gradient(160deg,#2a1d15,#120c09 70%)}
 .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
-.shot span{font-family:var(--serif);font-size:54px;letter-spacing:-.04em;opacity:.9}
+.shot .ph{font-family:var(--serif);font-size:54px;letter-spacing:-.04em;opacity:.9}
 .shot::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(13,9,7,.75));opacity:0;transition:opacity .4s}
 .go{position:absolute;z-index:2;left:50%;bottom:24px;width:52px;height:52px;margin-left:-26px;border-radius:50%;display:block;color:#1a120e;
   background:linear-gradient(135deg,var(--gold1),var(--gold2) 55%,var(--gold3));box-shadow:0 10px 26px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.5);
@@ -63,7 +63,6 @@ main{max-width:1180px;margin:0 auto;padding:40px 20px 90px}
 .card:hover .go .arrow,.card:focus-visible .go .arrow{opacity:1;transform:none}
 .card:hover .go::before,.card:focus-visible .go::before{animation:ring 1.7s ease-out infinite}
 @keyframes ring{from{opacity:.8;transform:scale(.92)}to{opacity:0;transform:scale(1.55)}}
-  background:linear-gradient(transparent,rgba(13,9,7,.92));opacity:0;transition:opacity .35s}
 .card:hover .frame,.card:focus-visible .frame{border-color:var(--gold2);transform:translateY(-6px)}
 .card:hover .shot::after,.card:focus-visible .shot::after{opacity:1}
 .card:focus-visible{outline:none}
@@ -76,32 +75,15 @@ footer .brand{font-family:var(--serif);font-size:30px;letter-spacing:.1em}
 footer p{color:var(--muted);font-size:13px;margin-top:6px}
 .dev{margin-top:26px !important;font-size:12px !important;letter-spacing:.14em}
 footer a{color:var(--gold2);text-decoration:none;border-bottom:1px solid var(--gold3)}
-.footer-brand {
-  text-align: center;
-  margin-bottom: 24px;
-}
 
-.brand-tagline {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: #c8b89b;
-  margin: 8px 0 5px;
-  text-transform: uppercase;
-}
-
-.brand-description {
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  color: #a7a197;
-  margin: 0;
-  font-weight: 300;
-  font-style: italic;
-}
+.footer-brand{text-align:center;margin-bottom:24px}
+.brand-tagline{font-size:10px;letter-spacing:3px;color:#c8b89b;margin:8px 0 5px;text-transform:uppercase}
+.brand-description{font-size:11px;letter-spacing:.5px;color:#a7a197;margin:0;font-weight:300;font-style:italic}
 .social{display:flex;gap:14px;justify-content:center;margin-top:24px}
 .social a{width:48px;height:48px;border-radius:50%;border:1px solid var(--gold3);display:grid;place-items:center;color:var(--gold1);border-bottom:1px solid var(--gold3);transition:background .3s,color .3s,transform .3s}
 .social a:hover,.social a:focus-visible{background:var(--gold2);color:var(--bg);transform:translateY(-3px);outline:none}
 .social svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-@media(prefers-reduced-motion:reduce){.hero-bg,header{transition-duration:.01s;animation:none}}}
+@media(prefers-reduced-motion:reduce){.hero-bg,header{transition-duration:.01s;animation:none}}
 </style>
 </head>
 <body>
@@ -121,11 +103,11 @@ footer a{color:var(--gold2);text-decoration:none;border-bottom:1px solid var(--g
 </main>
 
 <footer>
-<div class="footer-brand">
-  <div class="brand gold">LOVÉRA</div>
-  <p class="brand-tagline">LUXURY DIGITAL INVITATIONS</p>
-  <p class="brand-description">Every Moment Deserves Elegance.</p>
-</div>
+  <div class="footer-brand">
+    <div class="brand gold">LOVÉRA</div>
+    <p class="brand-tagline">LUXURY DIGITAL INVITATIONS</p>
+    <p class="brand-description">Every Moment Deserves Elegance.</p>
+  </div>
   <p>Want your own invitation website? <a href="#" id="contact" target="_blank" rel="noopener">Message us on WhatsApp</a></p>
   <div class="social">
     <a href="https://www.instagram.com/lovera.studios?mdxt=MnlsN3kwMHkxbGo1" target="_blank" rel="noopener" aria-label="Instagram">
@@ -134,7 +116,6 @@ footer a{color:var(--gold2);text-decoration:none;border-bottom:1px solid var(--g
     <a href="https://www.tiktok.com/@lovera.studio" target="_blank" rel="noopener" aria-label="TikTok">
       <svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2 4.2 5 4.5"/></svg>
     </a>
-   
   </div>
   <p class="dev">Developed by <a href="https://www.linkedin.com/in/yousseif-sai" target="_blank" rel="noopener">Yousseif Saif</a></p>
 </footer>
@@ -161,7 +142,7 @@ invitations.forEach(function(it){
   a.setAttribute("aria-label", it.name + " — open invitation");
   const initials = it.name.split(/[^A-Za-zÀ-ÿ]+/).filter(Boolean).filter(function(w,i){return i%2===0}).map(function(w){return w[0]}).join("&");
   a.innerHTML = '<div class="frame"><div class="shot">' +
-    (it.image ? '<img loading="lazy" alt="" src="'+it.image+'">' : '<span class="gold">'+initials+'</span>') +
+    (it.image ? '<img loading="lazy" alt="" src="'+it.image+'">' : '<span class="ph gold">'+initials+'</span>') +
     '<span class="go" aria-hidden="true"><svg class="star" viewBox="0 0 16 16"><path d="M8 0 9.6 6.4 16 8 9.6 9.6 8 16 6.4 9.6 0 8 6.4 6.4Z"/></svg><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5"/></svg></span>' +
     '</div></div><h3></h3><small></small>';
   a.querySelector("h3").textContent = it.name;
